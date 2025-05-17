@@ -1,5 +1,5 @@
 // import { Image } from 'expo-image';
-import {View, Text, StyleSheet, ScrollView} from "react-native";
+import {View, Text, StyleSheet, ScrollView, TouchableOpacity} from "react-native";
 import {useEffect, useState} from "react";
 import { importFont } from '@/utils/importFont';
 
@@ -8,9 +8,21 @@ import CTabs from "@/components/CTabs";
 import Event from "@/components/Event";
 
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import {Image} from 'expo-image';
+
+function UserAvatar() {
+    const navigation = useNavigation();
+    return (
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <View style={styles.avatarCircle}>
+                <Text style={styles.avatarText}>JD</Text>
+            </View>
+        </TouchableOpacity>
+    );
+}
 
 function Banner() {
     return (
@@ -41,7 +53,7 @@ function Banner() {
                     Доєднуйся       до команди координаторів
                 </Text>
                 <Image
-                    source={require('../../assets/images/voulonteer.png')}
+                    source={require('../../../assets/images/voulonteer.png')}
                     style={{
                         width: 200,
                         height: 180,
@@ -79,12 +91,17 @@ export default function HomeScreen() {
             alignItems: 'flex-start',
             height: '100%',
         }}>
-            <Text style={styles.headerText}>Головна</Text>
+            <View style={styles.headerRow}>
+                <Text style={styles.headerText}>Головна</Text>
+                <UserAvatar />
+            </View>
 
             <Banner/>
 
             <View style={styles.mainContent}>
-                <Text style={[styles.headerText, {}]}>Події</Text>
+                <Text style={[styles.headerText, {
+                    marginBottom: 16,
+                }]}>Події</Text>
                 <CTabs style={{
                     marginBottom: 16,
                     shadowColor: '#000000',
@@ -139,13 +156,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#0d0d0d',
         height: '100%',
     },
-    headerText: {
-        fontSize: 28,
-        fontFamily: 'FontBold',
-        color: 'lightgray',
-        textAlign: 'left',
-        marginBottom: 16,
-    },
     mainContent: {
         backgroundColor: '#141414',
         paddingHorizontal: 24,
@@ -160,5 +170,32 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: -4 },
         shadowOpacity: 0.25,
         shadowRadius: 16,
-    }
+    },
+    headerRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    headerText: {
+        fontSize: 28,
+        fontFamily: 'FontBold',
+        color: 'lightgray',
+        textAlign: 'left',
+        marginRight: 12,
+    },
+    avatarCircle: {
+        width: 36,
+        height: 36,
+        borderRadius: 18,
+        backgroundColor: '#e43800',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    avatarText: {
+        color: '#fff',
+        fontFamily: 'FontBold',
+        fontSize: 16,
+    },
 });
