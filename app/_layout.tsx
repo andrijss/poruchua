@@ -3,8 +3,11 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import {View, Text} from "react-native";
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import {Platform} from "react-native";
+import AuthGate from "@/components/AuthGate";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -17,13 +20,25 @@ export default function RootLayout() {
     return null;
   }
 
+  if (Platform.OS === 'android') {
+    return (
+        <View>
+          <Text>Додаток поки не доступний для користувачів Android :/</Text>
+        </View>
+    )
+  }
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-        <Stack.Screen name="Account" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+        <AuthGate>
+          <Stack>
+                <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
+                <Stack.Screen name="Account" options={{ headerShown: false }} />
+                <Stack.Screen name="Login" options={{ headerShown: false }} />
+                <Stack.Screen name="notifications" options={{ headerShown: false }} />
+                <Stack.Screen name="+not-found" />
+          </Stack>
+        </AuthGate>
       <StatusBar style="auto" />
     </ThemeProvider>
   );

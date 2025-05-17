@@ -40,13 +40,13 @@ function Banner() {
                 width: '100%',
                 height: '100%',
                 borderRadius: 18,
-                padding: 20
+                padding: 20,
+                justifyContent: 'center',
             }} start={{x: 0, y: 0.75}} end={{x: 1, y: 0.25}} colors={["#fe7000", "#e43800", "#d00e07"]}>
                 <Text style={{
                     color: '#fefefe',
                     fontWeight: '700',
                     fontSize: 24,
-                    top: 18,
                     width: 180,
                     fontFamily: 'FontBold'
                 }}>

@@ -3,8 +3,6 @@ import {View, Dimensions, Text, StyleSheet, ScrollView, TouchableOpacity} from "
 import {useEffect, useState} from "react";
 import { importFont } from '@/utils/importFont';
 
-import RadialGradientBackground from "@/components/radialGradientBG";
-import CTabs from "@/components/CTabs";
 import Event from "@/components/Event";
 import {IconSymbol} from "@/components/ui/IconSymbol";
 

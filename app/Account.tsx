@@ -107,7 +107,7 @@ export default function AccountScreen() {
                 <ScrollView style={{
                     top: 28,
                     flex: 1,
-                    width: 345,
+                    width: '100%',
                 }}>
                     <Event
                         eventName={'Допомога в притулку'}

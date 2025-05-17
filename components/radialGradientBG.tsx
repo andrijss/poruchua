@@ -2,16 +2,22 @@ import React from 'react';
 import { View } from 'react-native';
 import Svg, { Defs, RadialGradient as SVGRadialGradient, Stop, Rect, Path } from 'react-native-svg';
 
+import { Dimensions } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
+
+const scaleX = 320;
+const overflow = screenWidth - scaleX;
+const gradientCenterX = screenWidth - overflow / 2;
 
 export default function RadialGradientBackground() {
     return (
-        <View style={{ position: 'absolute', width: '100%', height: '100%', left: '-50%' }}>
+        <View style={{ position: 'absolute', width: screenWidth, height: '100%', right: -overflow/2 }}>
             <Svg
                 height="140%"
-                width="105%"
+                width={screenWidth}
                 style={{
                     position: 'absolute',
-                    right: '-60%',
                     top: '0%'
                 }}
             >
@@ -26,7 +32,7 @@ export default function RadialGradientBackground() {
                         cy="0"
                         r="1"
                         gradientUnits="userSpaceOnUse"
-                        gradientTransform="translate(340.5) rotate(90) scale(320 340.061)"
+                        gradientTransform={`translate(${gradientCenterX},0) rotate(90) scale(${scaleX} 340.061)`}
                     >
                         <Stop stopColor={'#EC530133'} stopOpacity={.6}/>
                         <Stop stopColor={'#0d0d0d'} stopOpacity={0} offset={1} />

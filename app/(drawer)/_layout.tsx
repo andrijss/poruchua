@@ -10,6 +10,8 @@ import {TouchableOpacity} from "react-native";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {Drawer} from "expo-router/drawer";
 
+import AuthGate from "@/components/AuthGate";
+
 import {useFonts} from "expo-font";
 
 export default function DrawerLayout() {

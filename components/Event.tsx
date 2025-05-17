@@ -5,7 +5,7 @@ import {ThemedText} from "@/components/ThemedText";
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import {Link} from 'expo-router';
 
-import {View, StyleSheet} from "react-native";
+import {View, Text, StyleSheet} from "react-native";
 import {useFonts} from 'expo-font';
 
 // types: charity, medicine, restoration, educational
@@ -31,7 +31,7 @@ export default function Event({eventName,
 
     // @ts-ignore
     return (
-        <ThemedView style={[styles.eventContainer, {
+        <View style={[styles.eventContainer, {
             shadowColor: '#000000',
             shadowOffset: { width: 0, height: 8 },
             shadowOpacity: 0.2,
@@ -41,7 +41,7 @@ export default function Event({eventName,
                 pathname: '/Event/[id]',
                 params: {id: linkToEvent}
             }}>
-                <ThemedView style={{
+                <View style={{
                     width: '100%',
                     backgroundColor: 'transparent',
                 }}>
@@ -53,12 +53,13 @@ export default function Event({eventName,
                         }}/> : <View></View>
                     }
 
-                    <ThemedText style={{
+                    <Text style={{
                         fontSize: 22,
                         paddingTop: 4,
                         paddingBottom: 8,
                         fontFamily: 'FontBold',
-                    }}>{eventName}</ThemedText>
+                        color: '#fefefe',
+                    }}>{eventName}</Text>
 
                     <View style={{
                         display: 'flex',
@@ -69,10 +70,12 @@ export default function Event({eventName,
                             top: 4,
                             left: -2,
                         }} />
-                        <ThemedText style={{
+                        <Text style={{
                             fontFamily: 'FontMedium',
                             left: 0,
-                        }}> {date}</ThemedText>
+                            color: '#fefefe',
+                            top: 3,
+                        }}> {date}</Text>
                     </View>
 
                     <View style={{
@@ -83,13 +86,15 @@ export default function Event({eventName,
                             top: 4,
                             left: -2,
                         }} />
-                        <ThemedText style={{
+                        <Text style={{
                             fontFamily: 'FontMedium',
                             left: 0,
-                        }}> {address}</ThemedText>
+                            top: 3,
+                            color: '#fefefe'
+                        }}> {address}</Text>
                     </View>
 
-                    <ThemedView style={{
+                    <View style={{
                         display: 'flex',
                         flexDirection: 'row',
                         backgroundColor: 'transparent',
@@ -121,16 +126,17 @@ export default function Event({eventName,
                                     backgroundColor: 'rgb(217,57,2)',
                                 }}></View>}
 
-                        <ThemedText style={{
+                        <Text style={{
                             fontFamily: 'FontBold',
                             left: 6,
-                            top: -1
+                            top: 2,
+                            color: '#fefefe'
                         }}>
                             {status === 'active' ? 'Активний' : status === 'soon' ? 'Незабаром' : 'Завершений'}
-                        </ThemedText>
-                    </ThemedView>
+                        </Text>
+                    </View>
 
-                    <ThemedText style={{
+                    <Text style={{
                         position: 'absolute',
                         fontWeight: 'bold',
                         fontSize: 24,
@@ -142,10 +148,10 @@ export default function Event({eventName,
                     }}>
                         <IconSymbol size={16} name="chevron.forward" color={'#c4c4c4'} style={{
                         }} />
-                    </ThemedText>
-                </ThemedView>
+                    </Text>
+                </View>
             </Link>
-        </ThemedView>
+        </View>
     );
 }
 
