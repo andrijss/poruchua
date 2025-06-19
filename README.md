@@ -20,3 +20,4 @@ Poruch is a mobile application designed to connect volunteers with community ini
 - Supabase (Authentication, Database, Realtime)  
 - JavaScript / TypeScript  
 - Expo 
+
