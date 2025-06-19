@@ -21,3 +21,14 @@ Poruch is a mobile application designed to connect volunteers with community ini
 - JavaScript / TypeScript  
 - Expo 
 
+<div style="display: flex;">
+  <img src="IMG_8796.PNG" width="256"/>
+  <img src="IMG_8797.PNG" width="256"/>
+  <img src="IMG_8798.PNG" width="256"/>
+  <img src="IMG_8799.PNG" width="256"/>
+  <img src="IMG_8800.PNG" width="256"/>
+  <img src="IMG_8801.PNG" width="256"/>
+  <img src="IMG_8802.PNG" width="256"/>
+  <img src="IMG_8803.PNG" width="256"/>
+  <img src="IMG_8804.PNG" width="256"/>
+</div>
